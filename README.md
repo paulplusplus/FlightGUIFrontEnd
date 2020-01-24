@@ -1,3 +1,10 @@
+# FlightGUIFrontEnd
+A React.js front end for my FlightGUI app.
+Intended to be a submodule for the main FlightGUI app.
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
