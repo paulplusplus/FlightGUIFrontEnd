@@ -16,7 +16,8 @@ export const LoginProvider = (props) => {
 
     const [loggedIn, setLoggedIn] = useState({
         status: false,
-        username: ''
+        username: '',
+        CustId: ''
     });
 
     return(

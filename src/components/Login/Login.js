@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import {LoginContext} from '../../contexts/LoginContext';
-import {Redirect} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 
 const Login = () => {
     const [login, setLogin] = useState('');
@@ -39,7 +39,7 @@ const Login = () => {
                 //console.log(response.status);
                 if(response.status == 200){
                     //console.log("SuccessEmail");
-                    setLoggedIn({status: true, username: `${json.UserName}`});
+                    setLoggedIn({status: true, username: `${json.UserName}`, CustID: `${json.CustID}`});
                 } else {
                     //console.log("ErrorEmail");
                     setLogin('');
@@ -61,7 +61,7 @@ const Login = () => {
                 //console.log(json);
                 //console.log(response.status);
                 if(response.status == 200){
-                    setLoggedIn({status: true, username: `${json.UserName}`});
+                    setLoggedIn({status: true, username: `${json.UserName}`, CustID: `${json.CustID}`});
                     //console.log("SuccessUsename");
                 } else{
                     setLogin('');
@@ -92,7 +92,7 @@ const Login = () => {
                 <button type="submit" disabled={!(login && password)}>Submit</button>
             </form>
             <div className="bottom-link">
-                <a>Sign up here</a>
+                <Link to={"/register"}>Sign up here</Link>
                 <a>Forgot password?</a>
             </div>
             {(loggedIn.status ? <Redirect to={"/"} /> : null)}

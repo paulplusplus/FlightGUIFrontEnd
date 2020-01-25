@@ -71,10 +71,9 @@ form .input input{
     border: 20px;
 }
 
-.input h4{
+.input h4 {
     padding: 10px 0px 5px 5px;
     font-size: 15px;
-    
 }
 
 
@@ -103,3 +102,13 @@ form .input input{
     cursor: pointer;
 }
 
+.regbox p {
+    color: #d8d5d5;
+}
+
+.page-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
