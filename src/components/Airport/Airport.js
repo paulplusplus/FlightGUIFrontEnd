@@ -22,7 +22,7 @@ const Airport = () => {
     return (
         <div>
             <h1>Airport</h1>
-            {(airports ? airports.map((airport) => <p key={airport.AirportID}>{airport.AirportName}</p>) : <h4>There were no airports found.</h4>)}
+            {(airports ? airports.map((airport) => <div className="item-div" key={airport.AirportID}><p>{airport.AirportName}</p></div>) : <h4>There were no airports found.</h4>)}
         </div>
     )
 }

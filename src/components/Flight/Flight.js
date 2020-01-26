@@ -26,7 +26,7 @@ const Flight = () => {
         <div>
             <h1>Flights</h1>
             
-            {(flights ? flights.map((flight) => <div key={flight.FlightID}><Link to={{
+            {(flights ? flights.map((flight) => <div className="item-div" key={flight.FlightID}><Link className='link' to={{
                 pathname: `/flights/${flight.FlightID}`,
                 state: {
                     flight: flight

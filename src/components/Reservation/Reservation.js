@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 
 
@@ -27,7 +27,7 @@ const Reservation = () => {
     return (
         <div>
             <h1>Reservation</h1>
-            {reservations ? reservations.map((reserv) => <div key={reserv.FlightID}><Link to={{
+            {reservations ? reservations.map((reserv) => <div key={reserv.FlightID} className="item-div"><Link className='link' to={{  
                 pathname: `/flights/${reserv.FlightID}`,
                 state: {
                     flight: reserv,

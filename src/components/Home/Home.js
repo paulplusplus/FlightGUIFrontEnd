@@ -2,11 +2,12 @@ import React, {useContext} from 'react';
 import {LoginContext} from '../../contexts/LoginContext';
 
 const Home = () => {
-    const [loggedIn, setLoggedIn] = useContext(LoginContext);
+    //const [loggedIn, setLoggedIn] = useContext(LoginContext);
+    const [loggedIn] = useContext(LoginContext);
     return (
         <div>
             <h1>{loggedIn.status ? `Welcome back, ${loggedIn.username}` : 'Welcome to FlightApp'}</h1>
-            <div className="pictures"><img src={'../../../logo512.png'}></img></div>
+            <div className="pictures"><img alt="home" src={'../../../icons/icon-192x192.png'}></img></div>
         </div>
     )
 }

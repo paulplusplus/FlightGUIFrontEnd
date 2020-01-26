@@ -37,7 +37,7 @@ const Login = () => {
                 const json = await response.json();
                 
                 //console.log(response.status);
-                if(response.status == 200){
+                if(response.status === 200){
                     //console.log("SuccessEmail");
                     setLoggedIn({status: true, username: `${json.UserName}`, CustID: `${json.CustID}`});
                 } else {
@@ -60,7 +60,7 @@ const Login = () => {
                 const json = await response.json();
                 //console.log(json);
                 //console.log(response.status);
-                if(response.status == 200){
+                if(response.status === 200){
                     setLoggedIn({status: true, username: `${json.UserName}`, CustID: `${json.CustID}`});
                     //console.log("SuccessUsename");
                 } else{
@@ -92,8 +92,8 @@ const Login = () => {
                 <button type="submit" disabled={!(login && password)}>Submit</button>
             </form>
             <div className="bottom-link">
-                <Link to={"/register"}>Sign up here</Link>
-                <a>Forgot password?</a>
+                <Link className='link' to={"/register"}>Sign up here</Link>
+                <p>Forgot password?</p>
             </div>
             {(loggedIn.status ? <Redirect to={"/"} /> : null)}
         </div>

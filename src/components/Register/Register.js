@@ -62,7 +62,7 @@ const Register = () => {
                 <button type="submit" disabled={!(username && email && password)}>Submit</button>
             </form>
             <div className="regbox">
-                <p>Your information will never be sold to anyone.</p>
+                <p>Your information will not be sold.</p>
                 <p>You will have to login again after creating an account.</p>
             </div>
             {(created ? <Redirect to={"/login"} /> : null)}

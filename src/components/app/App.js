@@ -1,6 +1,6 @@
 import React from 'react';
 //import logo from './logo.svg';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
 import './App.css';
 import Navbar from '../Navbar/Navbar';
 import Flight from '../Flight/Flight';
@@ -36,9 +36,7 @@ function App() {
   );
 }
 
-function Hello(props){
-  return(
-    <h1>Hello {props.title}</h1>
-  )
-}
 export default App;
+
+
+//<div className="page-content">
