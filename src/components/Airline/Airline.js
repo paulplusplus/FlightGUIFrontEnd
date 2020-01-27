@@ -19,7 +19,7 @@ const Airline = () => {
 
     return (
         <div>
-            <h1>Airline</h1>
+            <h1>Airlines</h1>
             {(airlines ? airlines.map((airline) => <div className="item-div" key={airline.AirlineID}><p>{airline.AirlineName}</p></div>) : <h4>There were no airlines found.</h4>)}
         </div>
     )

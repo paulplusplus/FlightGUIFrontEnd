@@ -39,6 +39,7 @@ const FlightDetail = (props) => {
     return (
         <div>
             <h2>Flight Information</h2>
+            <div className="item-div">
             <p>FlightID: {flight.FlightID}</p>
                 <p>Airline: {flight.AirlineName}</p>
                 <p>Origin: {flight.Origin}</p>
@@ -52,7 +53,7 @@ const FlightDetail = (props) => {
                 {(loggedIn.status && !link)? <button onClick={reserveFlight}>Reserve this flight</button> : null}
                 {(!loggedIn.status) ?  <Link className='link' to={'/flights'}>Go back</Link> : null}
                 {reserved ? <Redirect to={"/reservations"}></Redirect> : null}
-                
+            </div>
         </div>
     )
 }

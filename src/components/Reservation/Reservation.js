@@ -26,7 +26,7 @@ const Reservation = () => {
 
     return (
         <div>
-            <h1>Reservation</h1>
+            <h1>Reservations</h1>
             {reservations ? reservations.map((reserv) => <div key={reserv.FlightID} className="item-div"><Link className='link' to={{  
                 pathname: `/flights/${reserv.FlightID}`,
                 state: {

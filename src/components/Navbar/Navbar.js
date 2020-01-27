@@ -16,11 +16,11 @@ const Navbar = (props) => {
         <nav>
             <img src={require('./img/globe128.png')} alt="Home"></img>
             <ul className={sidelink ? "nav-links" : "nav-links nav-active"}>
-                <Link className='link' to="/"><li>Home</li></Link>
-                <Link className='link' to="/flights"><li>Flights</li></Link>
-                <Link className='link' to="/airports"><li>Airports</li></Link>
-                <Link className='link' to="/airlines"><li>Airlines</li></Link>
-                <Link className='link' to={loggedIn.status ? "/reservations" : "/login"}><li>{loggedIn.status ? "Your reservations" : "Login/Register Here"}</li></Link>
+                <Link className='link' to="/"><li onClick={() => setSidelink(!sidelink)}>Home</li></Link>
+                <Link className='link' to="/flights" onClick={() => setSidelink(!sidelink)}><li>Flights</li></Link>
+                <Link className='link' to="/airports" onClick={() => setSidelink(!sidelink)}><li>Airports</li></Link>
+                <Link className='link' to="/airlines" onClick={() => setSidelink(!sidelink)}><li>Airlines</li></Link>
+                <Link className='link' to={loggedIn.status ? "/reservations" : "/login"} onClick={() => setSidelink(!sidelink)}><li>{loggedIn.status ? "Your reservations" : "Login/Register Here"}</li></Link>
                 <p>{loggedIn.status ? loggedIn.username : 'Please login'}</p>
                 {loggedIn.status ? <li onClick={handleClick}>Log out</li> : <Redirect to={"/"}></Redirect>}
             </ul>
