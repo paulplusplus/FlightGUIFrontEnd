@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import {LoginContext} from '../../contexts/LoginContext';
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 const ModifyCust = () => {
 
