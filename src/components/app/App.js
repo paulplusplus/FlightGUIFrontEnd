@@ -11,6 +11,8 @@ import Home from '../Home/Home';
 import Reservation from '../Reservation/Reservation';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
+import Customer from '../Customer/Customer';
+import ModifyCust from '../Customer/ModifyCust';
 import {LoginProvider} from '../../contexts/LoginContext';
 
 
@@ -29,6 +31,8 @@ function App() {
             <Route path="/airports" component={Airport} />
             <Route path="/reservations" component={Reservation} />
             <Route path="/register" component={Register} />
+            <Route path='/customer' component={Customer} />
+            <Route path='/modifycust' component={ModifyCust} />
           </div>
         </div>
       </Router>
@@ -38,5 +42,3 @@ function App() {
 
 export default App;
 
-
-//<div className="page-content">

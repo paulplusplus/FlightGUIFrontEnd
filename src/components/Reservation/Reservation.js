@@ -40,11 +40,3 @@ const Reservation = () => {
 
 export default Reservation;
 
-/* {(flights ? flights.map((flight) => <div key={flight.FlightID}><Link to={{
-    pathname: `/flights/${flight.FlightID}`,
-    state: {
-        flight: flight
-    }
-}}>{`Flight from ${flight.Origin} to ${flight.Destination}`}</Link>
-    
-</div>) : <h4>There are no flights.</h4>)} */

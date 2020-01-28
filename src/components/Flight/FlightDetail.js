@@ -18,22 +18,44 @@ const FlightDetail = (props) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    CustID: loggedIn.CustID,
+                    CustID: loggedIn.CustId,
                     FlightID: flight.FlightID,
                     GuiSearch: 1
                 })
             });
+            const json = request.json();
+            console.log(json);
             if(request.ok){
                 setReserved(true);
             } else {
                 console.log("fail");
+                console.log(request.status);
                 setReserved('error');
             }
-            const json = request.json();
-            console.log(json);
+            
         } catch (err) {
            console.error(err);
-            
+        }
+    }
+
+    async function removeReservation() {
+        //Remove the customer's reservation
+        var body = {CustID: loggedIn.CustId, FlightID: flight.FlightID};
+        //Now, we Fetch delete
+        try{
+            const req = await fetch('/api/reservations/', {
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }, 
+                body: JSON.stringify(body)
+            });
+            const json = await req.json();
+            console.log(json);
+            setReserved('deleted');
+        } catch (err) {
+            console.error(err);
         }
     }
     return (
@@ -49,11 +71,14 @@ const FlightDetail = (props) => {
                 <p>Time of departure: {flight.DepartureTime}</p>
                 <p>Estimated flight time: {flight.FlightTime}</p>
                 <br />
-                {link ? <Link className='link' to={'/reservations'}>Go back</Link> : null}
+                {link ? <><Link className='link' to={'/reservations'}>Go back</Link> </> : null}
                 {(loggedIn.status && !link)? <button onClick={reserveFlight}>Reserve this flight</button> : null}
                 {(!loggedIn.status) ?  <Link className='link' to={'/flights'}>Go back</Link> : null}
                 {reserved ? <Redirect to={"/reservations"}></Redirect> : null}
             </div>
+            {link ? <div className="item-div">
+                <p className='link' onClick={removeReservation}>Remove Reservation</p>
+            </div>: null}
         </div>
     )
 }

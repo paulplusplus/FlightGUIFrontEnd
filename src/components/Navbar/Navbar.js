@@ -8,7 +8,7 @@ const Navbar = (props) => {
     const [sidelink, setSidelink] = useState(false);
     function handleClick(e){
         e.preventDefault();
-        setLoggedIn({status: false, username: '', CustID: ''});
+        setLoggedIn({status: false, username: '', CustId: '', Email: ''});
         //props.history.push("/");
     }
     
@@ -21,7 +21,7 @@ const Navbar = (props) => {
                 <Link className='link' to="/airports" onClick={() => setSidelink(!sidelink)}><li>Airports</li></Link>
                 <Link className='link' to="/airlines" onClick={() => setSidelink(!sidelink)}><li>Airlines</li></Link>
                 <Link className='link' to={loggedIn.status ? "/reservations" : "/login"} onClick={() => setSidelink(!sidelink)}><li>{loggedIn.status ? "Your reservations" : "Login/Register Here"}</li></Link>
-                <p>{loggedIn.status ? loggedIn.username : 'Please login'}</p>
+                {loggedIn.status ? <Link className='link' to="/customer" onClick={() => setSidelink(!sidelink)}><li>{loggedIn.username}</li></Link> : <p>Please login</p>}
                 {loggedIn.status ? <li onClick={handleClick}>Log out</li> : <Redirect to={"/"}></Redirect>}
             </ul>
             <div className={sidelink ? "hamburger" : "hamburger toggle"} onClick={() => setSidelink(!sidelink)}>
@@ -35,5 +35,3 @@ const Navbar = (props) => {
 
 export default Navbar;
 
-
-//nav-links

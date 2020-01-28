@@ -18,8 +18,6 @@ const Flight = () => {
             console.err(err);
             //return false;
         }
-        //{(getFlights ? flights.map((flight) => <p>flight.AirlineName</p>) : <h4>There are no flights.</h4>)}
-        
     }
 
     return (
@@ -38,43 +36,4 @@ const Flight = () => {
     )
 }
 
-//<p key={flight.FlightID}>{flight.AirlineName}</p>
 export default Flight;
-
-/*import React, { Component } from "react";
-
-class Flight extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            flights: ''
-        };
-    }
-
-    render() {
-        return(
-            <div>
-                <h1>Flights</h1>
-                {getFlights}
-            </div>
-
-        )
-    }
-} */
-
-/* {flights.map((flight) => {
-    return (<h1 key={item.id}><Link to={`/shop/${item.id}`}>{item.name}</Link></h1>);
-})
-}  */
-
-/*
-<p>FlightID: {flight.FlightID}</p>
-                <p>Airline: {flight.AirlineName}</p>
-                <p>Origin: {flight.Origin}</p>
-                <p>Destination: {flight.Destination}</p>
-                <p>Fare: {flight.Fare}</p>
-                <p>Date: {flight.FlightDate}</p>
-                <p>Time of departure: {flight.DepartureTime}</p>
-                <p>Estimated flight time: {flight.FlightTime}</p>
-                <br />
-*/

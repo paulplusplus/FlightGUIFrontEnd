@@ -8,19 +8,13 @@ const Login = () => {
     const [loggedIn, setLoggedIn] = useContext(LoginContext);
     const updateLogin = (e) => {
         setLogin(e.target.value);
-        //console.log(e.target.value);
     }
     const updatePassword = (e) => {
         setPassword(e.target.value);
-        //console.log(e.target.value);
     }
     const output = async (e) => {
         try{
             e.preventDefault();
-            //const resp = await fetch('/api');
-            //const json = await resp.json();
-            
-            //console.log(json);
             let myRe = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}/g;
             if(myRe.test(login)){
                 //If the regex matches, an email was provided
@@ -36,12 +30,9 @@ const Login = () => {
                 });
                 const json = await response.json();
                 
-                //console.log(response.status);
                 if(response.status === 200){
-                    //console.log("SuccessEmail");
-                    setLoggedIn({status: true, username: `${json.UserName}`, CustID: `${json.CustID}`});
+                    setLoggedIn({status: true, username: `${json.UserName}`, CustId: `${json.CustID}`, Email: `${json.Email}`});
                 } else {
-                    //console.log("ErrorEmail");
                     setLogin('');
                     setPassword('');
                 }
@@ -58,15 +49,11 @@ const Login = () => {
                 });
                 
                 const json = await response.json();
-                //console.log(json);
-                //console.log(response.status);
                 if(response.status === 200){
-                    setLoggedIn({status: true, username: `${json.UserName}`, CustID: `${json.CustID}`});
-                    //console.log("SuccessUsename");
+                    setLoggedIn({status: true, username: `${json.UserName}`, CustId: `${json.CustID}`, Email: `${json.Email}`});
                 } else{
                     setLogin('');
                     setPassword('');
-                    //console.log("ErrorEmail");
                 } 
             }
             
