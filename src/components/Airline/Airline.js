@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 
 const Airline = () => {
     useEffect(() => {
@@ -20,7 +21,15 @@ const Airline = () => {
     return (
         <div>
             <h1>Airlines</h1>
-            {(airlines ? airlines.map((airline) => <div className="item-div" key={airline.AirlineID}><p>{airline.AirlineName}</p></div>) : <h4>There were no airlines found.</h4>)}
+            {(airlines ? airlines.map((airline) => <div className="item-div" key={airline.AirlineID}>
+                <Link className='link' to={{
+                pathname: `/airlines/${airline.AirlineID}`,
+                state: {
+                    airline: airline
+                }
+            }}>{airline.AirlineName}
+            
+            </Link></div>) : <h4>There were no airlines found.</h4>)}
         </div>
     )
 }

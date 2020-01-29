@@ -13,6 +13,7 @@ import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Customer from '../Customer/Customer';
 import ModifyCust from '../Customer/ModifyCust';
+import AirlineFlights from '../Airline/AirlineFlights';
 import {LoginProvider} from '../../contexts/LoginContext';
 
 
@@ -27,7 +28,8 @@ function App() {
             <Route path="/login" component={Login} />
             <Route path="/flights" exact component={Flight} />
             <Route path="/flights/:id" component={FlightDetail} />
-            <Route path="/airlines" component={Airline} />
+            <Route path="/airlines" exact component={Airline} />
+            <Route path="/airlines/:id" component={AirlineFlights} />
             <Route path="/airports" component={Airport} />
             <Route path="/reservations" component={Reservation} />
             <Route path="/register" component={Register} />
