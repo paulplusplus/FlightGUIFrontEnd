@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 
 const Airport = () => {
     useEffect(() => {
@@ -21,8 +22,16 @@ const Airport = () => {
 
     return (
         <div>
-            <h1>Airports</h1>
-            {(airports ? airports.map((airport) => <div className="item-div" key={airport.AirportID}><p>{airport.AirportName}</p></div>) : <h4>There were no airports found.</h4>)}
+            <h1>Select airport</h1>
+            {(airports ? airports.map((airport) => <div className="item-div" key={airport.AirportID}>
+            <Link className='link' to={{
+                pathname: `/airports/${airport.AirportID}`,
+                state: {
+                    airport: airport.AirportName
+                }
+            }}>{airport.AirportName}</Link>
+
+            </div>) : <h4>There were no airports found.</h4>)}
         </div>
     )
 }
@@ -30,3 +39,4 @@ const Airport = () => {
 export default Airport;
 
 
+//<p>{airport.AirportName}</p>

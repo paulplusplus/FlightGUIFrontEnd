@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {Link} from 'react-router-dom';
+import {LoginContext} from '../../contexts/LoginContext';
 
 
 const AirlineFlights = (props) => {
@@ -7,7 +8,7 @@ const AirlineFlights = (props) => {
         flightByAirline();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
+    const [loggedIn] = useContext(LoginContext);
     const {airline} = props.location.state;
     const [resp, setResp] = useState();
 
@@ -38,6 +39,12 @@ const AirlineFlights = (props) => {
                     <p>Time of departure: {flight.DepartureTime}</p>
                     <p>Estimated flight time: {flight.FlightTime}</p>
                     <br />
+                    {loggedIn.status ? <Link className='link' to={{
+                    pathname: `/flights/${flight.FlightID}`,
+                    state: {
+                        flight: flight
+                    }
+                }}>Reserve here</Link>  : <p>Log in to reserve</p>}
                     
                 </div>
             ) : <h4>No flights for this airline.</h4>}

@@ -4,8 +4,10 @@ import {LoginContext} from '../../contexts/LoginContext';
 
 
 const Navbar = (props) => {
+    
     const [loggedIn, setLoggedIn] = useContext(LoginContext);
-    const [sidelink, setSidelink] = useState(false);
+    const [sidelink, setSidelink] = useState(true);
+
     function handleClick(e){
         e.preventDefault();
         setLoggedIn({status: false, username: '', CustId: '', Email: ''});
@@ -14,7 +16,7 @@ const Navbar = (props) => {
     
     return (
         <nav>
-            <img src={require('./img/globe128.png')} alt="Home"></img>
+            <Link to="/" onClick={() => setSidelink(true)}><img src={require('./img/globe128.png')} alt="Home"></img></Link>
             <ul className={sidelink ? "nav-links" : "nav-links nav-active"}>
                 <Link className='link' to="/"><li onClick={() => setSidelink(!sidelink)}>Home</li></Link>
                 <Link className='link' to="/flights" onClick={() => setSidelink(!sidelink)}><li>Flights</li></Link>

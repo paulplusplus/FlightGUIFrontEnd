@@ -71,20 +71,19 @@ const FlightDetail = (props) => {
                 <p>Time of departure: {flight.DepartureTime}</p>
                 <p>Estimated flight time: {flight.FlightTime}</p>
                 <br />
-                {link ? <><Link className='link' to={'/reservations'}>Go back</Link> </> : null}
+                {link ? <p className='link' onClick={removeReservation}>Remove Reservation</p> : null}
                 {(loggedIn.status && !link)? <button onClick={reserveFlight}>Reserve this flight</button> : null}
                 {(!loggedIn.status) ?  <Link className='link' to={'/flights'}>Go back</Link> : null}
                 {reserved ? <Redirect to={"/reservations"}></Redirect> : null}
             </div>
-            {link ? <div className="item-div">
-                <p className='link' onClick={removeReservation}>Remove Reservation</p>
-            </div>: null}
+            {link ? <div className="item-div"><Link className='link' to={'/reservations'}>Go back</Link></div>: null}
+            {(loggedIn.status && !link) ? <div className="item-div"><Link className='link' to={'/flights'}>Go back</Link></div>: null}
         </div>
     )
 }
 
 export default FlightDetail;
-
+//'airportdet'
 
 /*<p>FlightID: {props.FlightID}</p>
                 <p>Airline: {props.AirlineName}</p>
